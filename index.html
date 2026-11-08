@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Age Calculator, QR Code Generator & Image to PDF Converter – Free Online Tools | ToolBox India</title>
-<meta name="description" content="Free online Age Calculator, QR Code Generator and Image to PDF Converter. Combine JPG, PNG and WebP photos into one PDF. No sign-up, private, works on mobile. By ToolBox India.">
-<meta name="keywords" content="age calculator, calculate age from date of birth, exact age calculator, QR code generator, free QR code maker, image to PDF, JPG to PDF, PNG to PDF, convert photos to PDF, online tools India">
+<title>Age Calculator, QR Code Generator, Image to PDF & Merge PDF – Free Online Tools | ToolBox India</title>
+<meta name="description" content="Free online Age Calculator, QR Code Generator, Image to PDF Converter and Merge PDF tool. Combine photos or PDF files into one PDF. No sign-up, private, works on mobile. By ToolBox India.">
+<meta name="keywords" content="age calculator, calculate age from date of birth, exact age calculator, QR code generator, free QR code maker, image to PDF, JPG to PDF, PNG to PDF, convert photos to PDF, merge PDF, combine PDF files, join PDFs, online tools India">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#14213d">
 <link rel="canonical" href="https://aejaj952.github.io/Toolbox-i/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ToolBox India">
-<meta property="og:title" content="ToolBox India – Free Age Calculator, QR Code Generator & Image to PDF">
-<meta property="og:description" content="Calculate your exact age, create downloadable QR codes and convert images to PDF. Free, fast and private.">
+<meta property="og:title" content="ToolBox India – Free Age Calculator, QR Code Generator, Image to PDF & Merge PDF">
+<meta property="og:description" content="Calculate your exact age, create downloadable QR codes, convert images to PDF and merge PDF files. Free, fast and private.">
 <meta property="og:url" content="https://aejaj952.github.io/Toolbox-i/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2314213d'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%23f28c28'/%3E%3C/svg%3E">
@@ -22,6 +22,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js" defer></script>
 <script>
   tailwind.config = { theme: { extend: {
     fontFamily: { display: ['"Bricolage Grotesque"', 'sans-serif'], sans: ['Figtree', 'system-ui', 'sans-serif'] },
@@ -49,6 +50,10 @@
       "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)",
       "description": "Combine JPG, PNG, WebP, GIF and BMP images into a single PDF with page size, margin and quality options. Runs in your browser; files are never uploaded.",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "isPartOf": { "@id": "https://aejaj952.github.io/Toolbox-i/#website" } },
+    { "@type": "WebApplication", "name": "Merge PDF", "url": "https://aejaj952.github.io/Toolbox-i/#merge-pdf",
+      "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)",
+      "description": "Combine several PDF files into one document, reorder them and download the merged PDF. Runs in your browser; files are never uploaded.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "isPartOf": { "@id": "https://aejaj952.github.io/Toolbox-i/#website" } },
     { "@type": "FAQPage", "mainEntity": [
       { "@type": "Question", "name": "How do I calculate my exact age from my date of birth?",
         "acceptedAnswer": { "@type": "Answer", "text": "Select your date of birth and press Calculate age. The tool subtracts it from today's date and shows your age in years, months and days, plus total days, hours and minutes lived." } },
@@ -71,7 +76,15 @@
       { "@type": "Question", "name": "Can I choose the page size and reduce the PDF file size?",
         "acceptedAnswer": { "@type": "Answer", "text": "Yes. Choose A4, US Letter or a page that fits each image, set the margin, and pick High, Medium or Small quality. Small quality gives a lighter PDF that is easier to upload to government and college portals." } },
       { "@type": "Question", "name": "Can I change the order of the pages before creating the PDF?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use the up and down buttons next to each image to move it, or the remove button to delete it, before you press Create PDF." } }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use the up and down buttons next to each image to move it, or the remove button to delete it, before you press Create PDF." } },
+      { "@type": "Question", "name": "How do I merge PDF files online for free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Choose or drag in two or more PDF files, put them in the order you want using the up and down buttons, and press Merge & download PDF. The merged file is built in your browser and downloads straight away, with no sign-up and no watermark." } },
+      { "@type": "Question", "name": "Are my PDF files uploaded to a server when I merge them?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Merging happens entirely inside your browser, so your documents never leave your device." } },
+      { "@type": "Question", "name": "How many PDF files can I merge and how large can they be?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You can merge up to 30 PDF files at a time, with up to 50 MB per file. Every page of every file is included, in the order shown in the list." } },
+      { "@type": "Question", "name": "Why can't my PDF be merged?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Password-protected or damaged PDFs cannot be read. Remove the password in your PDF viewer, save a new copy and add that copy instead." } }
     ] }
   ]
 }
@@ -82,6 +95,8 @@
   #qr-output img, #qr-output canvas { max-width: 100%; height: auto; }
   #pdf-drop.is-over { border-color: #f28c28; background: #fff7ec; }
   #pdf-drop:focus-within { outline: 2px solid #f28c28; outline-offset: 2px; }
+  #mp-drop.is-over { border-color: #f28c28; background: #fff7ec; }
+  #mp-drop:focus-within { outline: 2px solid #f28c28; outline-offset: 2px; }
   details > summary { list-style: none; cursor: pointer; }
   details > summary::-webkit-details-marker { display: none; }
   details[open] .chev { transform: rotate(180deg); }
@@ -102,6 +117,7 @@
       <a href="#age-calculator" class="px-3 py-2 rounded-md hover:bg-slate-100">Age Calculator</a>
       <a href="#qr-generator" class="px-3 py-2 rounded-md hover:bg-slate-100">QR Code Generator</a>
       <a href="#pdf-converter" class="px-3 py-2 rounded-md hover:bg-slate-100">Image to PDF</a>
+      <a href="#merge-pdf" class="px-3 py-2 rounded-md hover:bg-slate-100">Merge PDF</a>
       <a href="#faq" class="px-3 py-2 rounded-md hover:bg-slate-100">FAQ</a>
       <a href="#about" class="px-3 py-2 rounded-md hover:bg-slate-100">About</a>
     </nav>
@@ -113,6 +129,7 @@
     <a href="#age-calculator" class="block py-2">Age Calculator</a>
     <a href="#qr-generator" class="block py-2">QR Code Generator</a>
     <a href="#pdf-converter" class="block py-2">Image to PDF</a>
+    <a href="#merge-pdf" class="block py-2">Merge PDF</a>
     <a href="#faq" class="block py-2">FAQ</a>
     <a href="#about" class="block py-2">About</a>
   </nav>
@@ -121,12 +138,13 @@
 <main class="flex-1">
   <section id="home" class="bg-ink text-white">
     <div class="max-w-6xl mx-auto px-4 py-14 md:py-20">
-      <h1 class="font-display font-extrabold text-4xl md:text-5xl leading-tight max-w-3xl">Free Age Calculator, QR Code Generator and Image to PDF Converter</h1>
-      <p class="mt-4 text-slate-300 text-lg max-w-2xl">Work out your exact age from your date of birth, turn any link into a downloadable QR code, or combine your photos into one PDF. No sign-up, no software to install, and nothing you enter or choose leaves your device.</p>
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl leading-tight max-w-3xl">Free Age Calculator, QR Code Generator, Image to PDF Converter and PDF Merger</h1>
+      <p class="mt-4 text-slate-300 text-lg max-w-2xl">Work out your exact age from your date of birth, turn any link into a downloadable QR code, combine your photos into one PDF, or merge several PDF files into one. No sign-up, no software to install, and nothing you enter or choose leaves your device.</p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a href="#age-calculator" class="inline-flex h-11 items-center px-6 rounded-lg bg-saffron text-ink font-semibold hover:brightness-110 transition">Calculate my age</a>
         <a href="#qr-generator" class="inline-flex h-11 items-center px-6 rounded-lg border border-white/30 font-semibold hover:bg-white/10 transition">Make a QR code</a>
         <a href="#pdf-converter" class="inline-flex h-11 items-center px-6 rounded-lg border border-white/30 font-semibold hover:bg-white/10 transition">Images to PDF</a>
+        <a href="#merge-pdf" class="inline-flex h-11 items-center px-6 rounded-lg border border-white/30 font-semibold hover:bg-white/10 transition">Merge PDFs</a>
       </div>
     </div>
     <div class="h-1.5 flex"><span class="flex-1 bg-saffron"></span><span class="flex-1 bg-white"></span><span class="flex-1 bg-leaf"></span></div>
@@ -296,6 +314,57 @@
     </div>
   </section>
 
+  <!-- ============ MERGE PDF ============ -->
+  <section id="merge-pdf" class="bg-white border-b border-slate-200 scroll-mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <h2 class="font-display font-bold text-3xl text-ink">Merge PDF: combine PDF files into one</h2>
+      <p class="mt-2 text-slate-600 max-w-3xl">Add two or more PDF files, put them in the right order and download a single merged PDF. Ideal for joining application forms, certificates, bills and scanned pages. Everything happens in your browser, so your files are never uploaded.</p>
+
+      <div class="mt-6 grid gap-8 lg:grid-cols-2 items-start">
+        <div class="bg-paper border border-slate-200 rounded-2xl p-5 md:p-6">
+          <label id="mp-drop" for="mp-input" class="block cursor-pointer text-center border-2 border-dashed border-slate-300 bg-white rounded-xl px-4 py-8 hover:border-saffron transition">
+            <svg class="mx-auto text-saffron" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/><path d="M12 15V4"/><path d="m7 9 5-5 5 5"/></svg>
+            <span class="mt-2 block font-semibold text-ink">Tap to choose PDF files or drag them here</span>
+            <span class="mt-1 block text-xs text-slate-500">PDF only &middot; up to 30 files &middot; 50 MB each</span>
+            <input id="mp-input" type="file" accept="application/pdf,.pdf" multiple class="sr-only">
+          </label>
+
+          <p id="mp-error" class="hidden mt-3 text-sm text-red-600" role="alert"></p>
+
+          <div id="mp-files" class="hidden mt-5">
+            <div class="flex items-center justify-between gap-3">
+              <p id="mp-count" class="text-sm font-semibold text-ink"></p>
+              <button id="mp-clear" type="button" class="text-sm font-semibold text-slate-500 hover:text-red-600 underline">Clear all</button>
+            </div>
+            <ul id="mp-list" class="mt-2 space-y-2 max-h-80 overflow-y-auto pr-1"></ul>
+            <button id="mp-merge" type="button" class="mt-4 w-full h-11 rounded-lg bg-saffron text-ink font-semibold hover:brightness-110 transition disabled:opacity-60 disabled:cursor-not-allowed">Merge &amp; download PDF</button>
+          </div>
+
+          <p id="mp-status" class="mt-3 text-sm text-slate-600" role="status" aria-live="polite"></p>
+          <p id="mp-hint" class="mt-3 text-sm text-slate-500">Files are joined in the order shown in the list. Add at least two PDFs.</p>
+        </div>
+
+        <article class="space-y-4 text-slate-600 leading-relaxed">
+          <h3 class="font-display font-bold text-xl text-ink">How to merge PDF files</h3>
+          <ol class="list-decimal pl-5 space-y-1">
+            <li>Add your PDFs by tapping the box or dragging them in.</li>
+            <li>Use the arrows to set the order and the cross to remove any file.</li>
+            <li>Press Merge &amp; download PDF to get one combined document.</li>
+          </ol>
+          <h3 class="font-display font-bold text-xl text-ink">When a PDF merger is useful</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Joining separate scans of Aadhaar, PAN, marksheets and certificates into one file for an online application.</li>
+            <li>Combining a signed cover page with the main document before sending it by email or WhatsApp.</li>
+            <li>Putting monthly bills, invoices or receipts into a single PDF for reimbursement claims.</li>
+            <li>Bundling assignment parts or form pages that a portal accepts only as one upload.</li>
+          </ul>
+          <h3 class="font-display font-bold text-xl text-ink">Good to know</h3>
+          <p>Every page of every file is kept exactly as it is, including text you can select and search. Password-protected PDFs cannot be read, so remove the password in your PDF viewer first and add the unlocked copy. Your files are processed only in your browser and are never uploaded or stored.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FAQ ============ -->
   <section id="faq" class="max-w-3xl mx-auto px-4 py-12 scroll-mt-16">
     <h2 class="font-display font-bold text-3xl text-ink">Frequently asked questions</h2>
@@ -355,13 +424,33 @@
         <p class="mt-2 text-slate-600">Yes. Use the up and down buttons next to each image to move it, or the remove button to delete it, before you press Create &amp; download PDF.</p>
       </details>
     </div>
+
+    <h3 class="mt-8 font-display font-bold text-lg text-leaf">About Merge PDF</h3>
+    <div class="mt-3 space-y-3">
+      <details class="bg-white border border-slate-200 rounded-xl p-4">
+        <summary class="flex justify-between gap-3 font-semibold text-ink">How do I merge PDF files online for free?<svg class="chev shrink-0 transition" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p class="mt-2 text-slate-600">Choose or drag in two or more PDF files, put them in the order you want using the up and down buttons, and press Merge &amp; download PDF. The merged file is built in your browser and downloads straight away, with no sign-up and no watermark.</p>
+      </details>
+      <details class="bg-white border border-slate-200 rounded-xl p-4">
+        <summary class="flex justify-between gap-3 font-semibold text-ink">Are my PDF files uploaded to a server when I merge them?<svg class="chev shrink-0 transition" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p class="mt-2 text-slate-600">No. Merging happens entirely inside your browser, so your documents never leave your device.</p>
+      </details>
+      <details class="bg-white border border-slate-200 rounded-xl p-4">
+        <summary class="flex justify-between gap-3 font-semibold text-ink">How many PDF files can I merge and how large can they be?<svg class="chev shrink-0 transition" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p class="mt-2 text-slate-600">You can merge up to 30 PDF files at a time, with up to 50 MB per file. Every page of every file is included, in the order shown in the list.</p>
+      </details>
+      <details class="bg-white border border-slate-200 rounded-xl p-4">
+        <summary class="flex justify-between gap-3 font-semibold text-ink">Why can&rsquo;t my PDF be merged?<svg class="chev shrink-0 transition" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p class="mt-2 text-slate-600">Password-protected or damaged PDFs cannot be read. Remove the password in your PDF viewer, save a new copy and add that copy instead.</p>
+      </details>
+    </div>
   </section>
 
   <!-- ============ ABOUT ============ -->
   <section id="about" class="bg-white border-t border-slate-200 scroll-mt-16">
     <div class="max-w-3xl mx-auto px-4 py-12">
       <h2 class="font-display font-bold text-3xl text-ink">About ToolBox India</h2>
-      <p class="mt-3 text-slate-600 leading-relaxed">ToolBox India is an independent collection of simple, free utilities built to be fast and easy on any phone or computer. Every tool runs inside your browser, so the dates, links and text you enter stay on your device. Current tools include an age calculator, a QR code generator and an image to PDF converter, and we add new calculators and converters over time. Suggestions are welcome.</p>
+      <p class="mt-3 text-slate-600 leading-relaxed">ToolBox India is an independent collection of simple, free utilities built to be fast and easy on any phone or computer. Every tool runs inside your browser, so the dates, links and text you enter stay on your device. Current tools include an age calculator, a QR code generator, an image to PDF converter and a PDF merger, and we add new calculators and converters over time. Suggestions are welcome.</p>
       <p class="mt-3 text-slate-600 leading-relaxed">Questions or feedback? Email <a class="text-leaf font-semibold underline" href="mailto: aejaj.khan348@gmail.com">aejaj.khan348@gmail.com</a> (replace with your real address).</p>
     </div>
   </section>
@@ -377,6 +466,7 @@
       <a href="#age-calculator" class="hover:text-white">Age Calculator</a>
       <a href="#qr-generator" class="hover:text-white">QR Code Generator</a>
       <a href="#pdf-converter" class="hover:text-white">Image to PDF</a>
+      <a href="#merge-pdf" class="hover:text-white">Merge PDF</a>
       <a href="#about" class="hover:text-white">About</a>
       <a href="privacy.html" class="hover:text-white">Privacy Policy</a>
       <a href="terms.html" class="hover:text-white">Terms &amp; Conditions</a>
@@ -740,6 +830,225 @@
   });
   window.addEventListener('dragover', function (e) { e.preventDefault(); });
   window.addEventListener('drop', function (e) { e.preventDefault(); });
+
+  // ---------- Merge PDF ----------
+  var MP_MAX_FILES = 30;
+  var MP_MAX_BYTES = 50 * 1024 * 1024;
+  var mpItems = [];
+  var mpSeq = 0;
+  var mpBusy = false;
+
+  function mpStatus(msg) { $('mp-status').textContent = msg || ''; }
+  function mpError(msg) { var e = $('mp-error'); e.textContent = msg; e.classList.remove('hidden'); }
+  function mpClearMessages() { $('mp-error').classList.add('hidden'); $('mp-error').textContent = ''; mpStatus(''); }
+  function mpTick() { return new Promise(function (r) { setTimeout(r, 20); }); }
+  function mpIsPdf(f) { return (f.type || '').toLowerCase() === 'application/pdf' || /\.pdf$/i.test(f.name || ''); }
+
+  var pdfLibPromise = null;
+  function ensurePdfLib() {
+    if (window.PDFLib && window.PDFLib.PDFDocument) return Promise.resolve(window.PDFLib);
+    if (!pdfLibPromise) {
+      var urls = [
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js',
+        'https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js'
+      ];
+      pdfLibPromise = urls.reduce(function (p, u) {
+        return p.catch(function () {
+          return pdfLoadScript(u).then(function () {
+            if (!(window.PDFLib && window.PDFLib.PDFDocument)) throw new Error('pdf-lib missing');
+          });
+        });
+      }, Promise.reject(new Error('start'))).then(function () {
+        return window.PDFLib;
+      }).catch(function (e) { pdfLibPromise = null; throw e; });
+    }
+    return pdfLibPromise;
+  }
+
+  async function mpAddFiles(fileList) {
+    if (mpBusy) return;
+    mpClearMessages();
+    var problems = [];
+    var full = false;
+    var candidates = [];
+    Array.prototype.slice.call(fileList).forEach(function (f) {
+      if (!mpIsPdf(f)) { problems.push('"' + f.name + '" is not a PDF file.'); return; }
+      if (f.size > MP_MAX_BYTES) { problems.push('"' + f.name + '" is larger than 50 MB.'); return; }
+      if (f.size === 0) { problems.push('"' + f.name + '" is empty.'); return; }
+      if (mpItems.length + candidates.length >= MP_MAX_FILES) { full = true; return; }
+      candidates.push(f);
+    });
+    if (full) problems.push('You can add up to ' + MP_MAX_FILES + ' PDF files. Extra files were skipped.');
+
+    if (candidates.length) {
+      mpBusy = true;
+      mpRender();
+      mpStatus('Reading files\u2026');
+      var lib = null;
+      try { lib = await ensurePdfLib(); } catch (e) { lib = null; }
+      if (!lib) {
+        mpBusy = false;
+        mpStatus('');
+        mpRender();
+        mpError('The PDF library could not load. Check your internet connection and try again.');
+        return;
+      }
+      for (var i = 0; i < candidates.length; i++) {
+        var f = candidates[i];
+        mpStatus('Reading ' + f.name + ' (' + (i + 1) + ' of ' + candidates.length + ')\u2026');
+        await mpTick();
+        try {
+          var doc = await lib.PDFDocument.load(await f.arrayBuffer());
+          var pages = doc.getPageCount();
+          if (!pages) throw new Error('no pages');
+          mpItems.push({ id: ++mpSeq, file: f, name: f.name, pages: pages });
+        } catch (e) {
+          problems.push('"' + f.name + '" could not be read. It may be password-protected or damaged.');
+        }
+      }
+      mpBusy = false;
+      mpStatus('');
+    }
+    if (problems.length) mpError(problems.slice(0, 3).join(' ') + (problems.length > 3 ? ' (and ' + (problems.length - 3) + ' more issues)' : ''));
+    mpRender();
+  }
+
+  function mpRender(focusIndex, focusAct) {
+    var list = $('mp-list');
+    list.innerHTML = '';
+    mpItems.forEach(function (it, i) {
+      var li = document.createElement('li');
+      li.className = 'flex items-center gap-3 bg-white border border-slate-200 rounded-xl p-2';
+      var badge = document.createElement('div');
+      badge.className = 'w-12 h-12 grid place-items-center rounded-lg border border-slate-200 bg-paper text-xs font-bold text-saffron shrink-0';
+      badge.setAttribute('aria-hidden', 'true');
+      badge.textContent = 'PDF';
+      var info = document.createElement('div');
+      info.className = 'min-w-0 flex-1';
+      var nm = document.createElement('p');
+      nm.className = 'text-sm font-semibold text-ink truncate';
+      nm.textContent = (i + 1) + '. ' + it.name;
+      nm.title = it.name;
+      var sz = document.createElement('p');
+      sz.className = 'text-xs text-slate-500';
+      sz.textContent = it.pages + (it.pages === 1 ? ' page' : ' pages') + ' \u00b7 ' + fmtSize(it.file.size);
+      info.appendChild(nm); info.appendChild(sz);
+      var ctl = document.createElement('div');
+      ctl.className = 'flex gap-1 shrink-0';
+      var up = pdfBtn('Move ' + it.name + ' up', '\u2191', mpBusy || i === 0, function () { mpMove(i, -1); });
+      var down = pdfBtn('Move ' + it.name + ' down', '\u2193', mpBusy || i === mpItems.length - 1, function () { mpMove(i, 1); });
+      var rm = pdfBtn('Remove ' + it.name, '\u2715', mpBusy, function () { mpRemove(i); });
+      up.setAttribute('data-act', 'up'); down.setAttribute('data-act', 'down'); rm.setAttribute('data-act', 'remove');
+      ctl.appendChild(up); ctl.appendChild(down); ctl.appendChild(rm);
+      li.appendChild(badge); li.appendChild(info); li.appendChild(ctl);
+      list.appendChild(li);
+    });
+
+    var has = mpItems.length > 0;
+    var totalPages = mpItems.reduce(function (n, it) { return n + it.pages; }, 0);
+    $('mp-files').classList.toggle('hidden', !has);
+    $('mp-hint').classList.toggle('hidden', has);
+    $('mp-count').textContent = mpItems.length + (mpItems.length === 1 ? ' PDF' : ' PDFs') + ' selected \u00b7 ' + totalPages + (totalPages === 1 ? ' page' : ' pages') + ' in total';
+    $('mp-merge').disabled = mpBusy || mpItems.length < 2;
+    $('mp-clear').disabled = mpBusy;
+
+    if (typeof focusIndex === 'number') {
+      var row = list.children[focusIndex];
+      if (row) {
+        var target = row.querySelector('[data-act="' + focusAct + '"]');
+        if (!target || target.disabled) target = row.querySelector('button:not(:disabled)');
+        if (target) target.focus();
+      }
+    }
+  }
+
+  function mpMove(i, dir) {
+    var j = i + dir;
+    if (j < 0 || j >= mpItems.length) return;
+    var t = mpItems[i]; mpItems[i] = mpItems[j]; mpItems[j] = t;
+    mpRender(j, dir < 0 ? 'up' : 'down');
+  }
+  function mpRemove(i) {
+    mpItems.splice(i, 1);
+    mpClearMessages();
+    mpRender();
+  }
+  function mpClearAll() {
+    mpItems = [];
+    mpClearMessages();
+    mpRender();
+  }
+
+  async function mpMerge() {
+    if (mpBusy) return;
+    mpClearMessages();
+    if (mpItems.length < 2) { mpError('Add at least two PDF files to merge.'); return; }
+    mpBusy = true;
+    mpRender();
+    mpStatus('Preparing\u2026');
+    var lib = null;
+    try { lib = await ensurePdfLib(); } catch (e) { lib = null; }
+    if (!lib) {
+      mpBusy = false;
+      mpStatus('');
+      mpRender();
+      mpError('The PDF library could not load. Check your internet connection and try again.');
+      return;
+    }
+    try {
+      var out = await lib.PDFDocument.create();
+      for (var i = 0; i < mpItems.length; i++) {
+        var it = mpItems[i];
+        mpStatus('Merging file ' + (i + 1) + ' of ' + mpItems.length + '\u2026');
+        await mpTick();
+        var src;
+        try { src = await lib.PDFDocument.load(await it.file.arrayBuffer()); }
+        catch (e) { throw new Error('Could not read "' + it.name + '". It may be password-protected or damaged. Remove it and try again.'); }
+        var copied = await out.copyPages(src, src.getPageIndices());
+        copied.forEach(function (p) { out.addPage(p); });
+      }
+      mpStatus('Building your PDF\u2026');
+      await mpTick();
+      var bytes = await out.save();
+      var url = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'toolbox-india-merged.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 10000);
+      var n = out.getPageCount();
+      mpStatus('Done! Your merged PDF (' + n + (n === 1 ? ' page' : ' pages') + ') has been downloaded.');
+    } catch (e) {
+      mpStatus('');
+      mpError(e && e.message ? e.message : 'Something went wrong while merging. Please try again.');
+    } finally {
+      mpBusy = false;
+      mpRender();
+    }
+  }
+
+  $('mp-input').addEventListener('change', function () {
+    var picked = this.files ? Array.prototype.slice.call(this.files) : [];
+    this.value = '';
+    if (picked.length) mpAddFiles(picked);
+  });
+  $('mp-merge').addEventListener('click', mpMerge);
+  $('mp-clear').addEventListener('click', mpClearAll);
+
+  var mpDrop = $('mp-drop');
+  ['dragenter', 'dragover'].forEach(function (ev) {
+    mpDrop.addEventListener(ev, function (e) { e.preventDefault(); mpDrop.classList.add('is-over'); });
+  });
+  ['dragleave', 'drop'].forEach(function (ev) {
+    mpDrop.addEventListener(ev, function (e) { e.preventDefault(); mpDrop.classList.remove('is-over'); });
+  });
+  mpDrop.addEventListener('drop', function (e) {
+    var dropped = e.dataTransfer && e.dataTransfer.files ? Array.prototype.slice.call(e.dataTransfer.files) : [];
+    if (dropped.length) mpAddFiles(dropped);
+  });
+  mpRender();
 })();
 </script>
 </body>
