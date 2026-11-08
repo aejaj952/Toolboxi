@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Age Calculator, QR Code Generator, Image to PDF & Merge PDF – Free Online Tools | ToolBox India</title>
-<meta name="description" content="Free online Age Calculator, QR Code Generator, Image to PDF Converter and Merge PDF tool. Combine photos or PDF files into one PDF. No sign-up, private, works on mobile. By ToolBox India.">
-<meta name="keywords" content="age calculator, calculate age from date of birth, exact age calculator, QR code generator, free QR code maker, image to PDF, JPG to PDF, PNG to PDF, convert photos to PDF, merge PDF, combine PDF files, join PDFs, online tools India">
+<title>Age Calculator, QR Code Generator, Image to PDF, Merge PDF & Split PDF – Free Online Tools | ToolBox India</title>
+<meta name="description" content="Free online Age Calculator, QR Code Generator, Image to PDF Converter, Merge PDF and Split PDF tools. Combine photos or PDF files into one PDF, or split a PDF by page range. No sign-up, private, works on mobile. By ToolBox India.">
+<meta name="keywords" content="age calculator, calculate age from date of birth, exact age calculator, QR code generator, free QR code maker, image to PDF, JPG to PDF, PNG to PDF, convert photos to PDF, merge PDF, combine PDF files, join PDFs, split PDF, extract pages from PDF, separate PDF pages, online tools India">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#14213d">
 <link rel="canonical" href="https://aejaj952.github.io/Toolbox-i/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ToolBox India">
-<meta property="og:title" content="ToolBox India – Free Age Calculator, QR Code Generator, Image to PDF & Merge PDF">
-<meta property="og:description" content="Calculate your exact age, create downloadable QR codes, convert images to PDF and merge PDF files. Free, fast and private.">
+<meta property="og:title" content="ToolBox India – Free Age Calculator, QR Code Generator, Image to PDF, Merge PDF & Split PDF">
+<meta property="og:description" content="Calculate your exact age, create downloadable QR codes, convert images to PDF, merge PDF files and split PDFs by page range. Free, fast and private.">
 <meta property="og:url" content="https://aejaj952.github.io/Toolbox-i/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2314213d'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%23f28c28'/%3E%3C/svg%3E">
@@ -54,6 +54,10 @@
       "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)",
       "description": "Combine several PDF files into one document, reorder them and download the merged PDF. Runs in your browser; files are never uploaded.",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "isPartOf": { "@id": "https://aejaj952.github.io/Toolbox-i/#website" } },
+    { "@type": "WebApplication", "name": "Split PDF", "url": "https://aejaj952.github.io/Toolbox-i/#split-pdf",
+      "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)",
+      "description": "Split a PDF into separate files by page range, extract specific pages or save every page on its own. Runs in your browser; files are never uploaded.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "isPartOf": { "@id": "https://aejaj952.github.io/Toolbox-i/#website" } },
     { "@type": "FAQPage", "mainEntity": [
       { "@type": "Question", "name": "How do I calculate my exact age from my date of birth?",
         "acceptedAnswer": { "@type": "Answer", "text": "Select your date of birth and press Calculate age. The tool subtracts it from today's date and shows your age in years, months and days, plus total days, hours and minutes lived." } },
@@ -84,7 +88,15 @@
       { "@type": "Question", "name": "How many PDF files can I merge and how large can they be?",
         "acceptedAnswer": { "@type": "Answer", "text": "You can merge up to 30 PDF files at a time, with up to 50 MB per file. Every page of every file is included, in the order shown in the list." } },
       { "@type": "Question", "name": "Why can't my PDF be merged?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Password-protected or damaged PDFs cannot be read. Remove the password in your PDF viewer, save a new copy and add that copy instead." } }
+        "acceptedAnswer": { "@type": "Answer", "text": "Password-protected or damaged PDFs cannot be read. Remove the password in your PDF viewer, save a new copy and add that copy instead." } },
+      { "@type": "Question", "name": "How do I split a PDF into separate files online for free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Choose your PDF, pick a split mode, enter the page ranges such as 1-3, 4-end and press Split PDF. Each part is created in your browser and can be downloaded on its own or all together as a ZIP file, with no sign-up and no watermark." } },
+      { "@type": "Question", "name": "How do I write page ranges to split a PDF?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Separate ranges with commas and use the word end for the last page. In Split into ranges mode, 1-3, 4-end creates two PDFs. In Extract pages mode, 1, 3, 5-7 creates one PDF containing exactly those pages." } },
+      { "@type": "Question", "name": "Is my PDF uploaded to a server when I split it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Splitting happens entirely inside your browser, so your document never leaves your device." } },
+      { "@type": "Question", "name": "Why can't my PDF be split?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Password-protected or damaged PDFs cannot be read. Remove the password in your PDF viewer, save a new copy and use that copy instead." } }
     ] }
   ]
 }
@@ -97,6 +109,10 @@
   #pdf-drop:focus-within { outline: 2px solid #f28c28; outline-offset: 2px; }
   #mp-drop.is-over { border-color: #f28c28; background: #fff7ec; }
   #mp-drop:focus-within { outline: 2px solid #f28c28; outline-offset: 2px; }
+  #sp-drop.is-over { border-color: #f28c28; background: #fff7ec; }
+  #sp-drop:focus-within { outline: 2px solid #f28c28; outline-offset: 2px; }
+  .sp-mode:has(input:checked) { border-color: #14213d; background: #f7f8fb; }
+  .sp-mode:has(input:focus-visible) { outline: 2px solid #f28c28; outline-offset: 2px; }
   details > summary { list-style: none; cursor: pointer; }
   details > summary::-webkit-details-marker { display: none; }
   details[open] .chev { transform: rotate(180deg); }
@@ -118,6 +134,7 @@
       <a href="#qr-generator" class="px-3 py-2 rounded-md hover:bg-slate-100">QR Code Generator</a>
       <a href="#pdf-converter" class="px-3 py-2 rounded-md hover:bg-slate-100">Image to PDF</a>
       <a href="#merge-pdf" class="px-3 py-2 rounded-md hover:bg-slate-100">Merge PDF</a>
+      <a href="#split-pdf" class="px-3 py-2 rounded-md hover:bg-slate-100">Split PDF</a>
       <a href="#faq" class="px-3 py-2 rounded-md hover:bg-slate-100">FAQ</a>
       <a href="#about" class="px-3 py-2 rounded-md hover:bg-slate-100">About</a>
     </nav>
@@ -130,6 +147,7 @@
     <a href="#qr-generator" class="block py-2">QR Code Generator</a>
     <a href="#pdf-converter" class="block py-2">Image to PDF</a>
     <a href="#merge-pdf" class="block py-2">Merge PDF</a>
+    <a href="#split-pdf" class="block py-2">Split PDF</a>
     <a href="#faq" class="block py-2">FAQ</a>
     <a href="#about" class="block py-2">About</a>
   </nav>
@@ -138,13 +156,14 @@
 <main class="flex-1">
   <section id="home" class="bg-ink text-white">
     <div class="max-w-6xl mx-auto px-4 py-14 md:py-20">
-      <h1 class="font-display font-extrabold text-4xl md:text-5xl leading-tight max-w-3xl">Free Age Calculator, QR Code Generator, Image to PDF Converter and PDF Merger</h1>
-      <p class="mt-4 text-slate-300 text-lg max-w-2xl">Work out your exact age from your date of birth, turn any link into a downloadable QR code, combine your photos into one PDF, or merge several PDF files into one. No sign-up, no software to install, and nothing you enter or choose leaves your device.</p>
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl leading-tight max-w-3xl">Free Age Calculator, QR Code Generator, Image to PDF Converter, PDF Merger and PDF Splitter</h1>
+      <p class="mt-4 text-slate-300 text-lg max-w-2xl">Work out your exact age from your date of birth, turn any link into a downloadable QR code, combine your photos into one PDF, merge several PDF files into one, or split a PDF into parts. No sign-up, no software to install, and nothing you enter or choose leaves your device.</p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a href="#age-calculator" class="inline-flex h-11 items-center px-6 rounded-lg bg-saffron text-ink font-semibold hover:brightness-110 transition">Calculate my age</a>
         <a href="#qr-generator" class="inline-flex h-11 items-center px-6 rounded-lg border border-white/30 font-semibold hover:bg-white/10 transition">Make a QR code</a>
         <a href="#pdf-converter" class="inline-flex h-11 items-center px-6 rounded-lg border border-white/30 font-semibold hover:bg-white/10 transition">Images to PDF</a>
         <a href="#merge-pdf" class="inline-flex h-11 items-center px-6 rounded-lg border border-white/30 font-semibold hover:bg-white/10 transition">Merge PDFs</a>
+        <a href="#split-pdf" class="inline-flex h-11 items-center px-6 rounded-lg border border-white/30 font-semibold hover:bg-white/10 transition">Split a PDF</a>
       </div>
     </div>
     <div class="h-1.5 flex"><span class="flex-1 bg-saffron"></span><span class="flex-1 bg-white"></span><span class="flex-1 bg-leaf"></span></div>
@@ -365,6 +384,99 @@
     </div>
   </section>
 
+  <!-- ============ SPLIT PDF ============ -->
+  <section id="split-pdf" class="border-b border-slate-200 scroll-mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <h2 class="font-display font-bold text-3xl text-ink">Split PDF: separate pages or extract page ranges</h2>
+      <p class="mt-2 text-slate-600 max-w-3xl">Choose a PDF, see how many pages it has, then split it by page range, pull out only the pages you need, or save every page as its own file. Everything happens in your browser, so your document is never uploaded.</p>
+
+      <div class="mt-6 grid gap-8 lg:grid-cols-2 items-start">
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 md:p-6 shadow-sm">
+          <label id="sp-drop" for="sp-input" class="block cursor-pointer text-center border-2 border-dashed border-slate-300 rounded-xl px-4 py-8 hover:border-saffron transition">
+            <svg class="mx-auto text-saffron" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/><path d="M12 15V4"/><path d="m7 9 5-5 5 5"/></svg>
+            <span id="sp-drop-text" class="mt-2 block font-semibold text-ink">Tap to choose a PDF or drag it here</span>
+            <span class="mt-1 block text-xs text-slate-500">One PDF at a time &middot; up to 50 MB</span>
+            <input id="sp-input" type="file" accept="application/pdf,.pdf" class="sr-only">
+          </label>
+
+          <p id="sp-error" class="hidden mt-3 text-sm text-red-600" role="alert"></p>
+
+          <div id="sp-file" class="hidden mt-5">
+            <div class="flex items-center gap-3 bg-paper border border-slate-200 rounded-xl p-2">
+              <div class="w-12 h-12 grid place-items-center rounded-lg border border-slate-200 bg-white text-xs font-bold text-saffron shrink-0" aria-hidden="true">PDF</div>
+              <div class="min-w-0 flex-1">
+                <p id="sp-name" class="text-sm font-semibold text-ink truncate"></p>
+                <p id="sp-meta" class="text-xs text-slate-500"></p>
+              </div>
+              <button id="sp-remove" type="button" class="shrink-0 h-9 px-3 rounded-lg border border-slate-300 text-sm font-semibold text-ink hover:bg-slate-100 disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Remove this PDF">Remove</button>
+            </div>
+
+            <fieldset class="mt-4">
+              <legend class="text-sm font-semibold mb-2">How do you want to split it?</legend>
+              <div class="grid sm:grid-cols-3 gap-2">
+                <label class="sp-mode flex items-start gap-2 p-3 rounded-lg border border-slate-300 bg-white cursor-pointer hover:border-saffron transition">
+                  <input type="radio" name="sp-mode" value="ranges" checked class="mt-1 accent-[#14213d]">
+                  <span><span class="block text-sm font-semibold text-ink">Split into ranges</span><span class="block text-xs text-slate-500">Each range becomes its own PDF</span></span>
+                </label>
+                <label class="sp-mode flex items-start gap-2 p-3 rounded-lg border border-slate-300 bg-white cursor-pointer hover:border-saffron transition">
+                  <input type="radio" name="sp-mode" value="extract" class="mt-1 accent-[#14213d]">
+                  <span><span class="block text-sm font-semibold text-ink">Extract pages</span><span class="block text-xs text-slate-500">Chosen pages go into one PDF</span></span>
+                </label>
+                <label class="sp-mode flex items-start gap-2 p-3 rounded-lg border border-slate-300 bg-white cursor-pointer hover:border-saffron transition">
+                  <input type="radio" name="sp-mode" value="every" class="mt-1 accent-[#14213d]">
+                  <span><span class="block text-sm font-semibold text-ink">Every page</span><span class="block text-xs text-slate-500">One PDF for each page</span></span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div id="sp-range-wrap" class="mt-4">
+              <label id="sp-range-label" for="sp-ranges" class="block text-sm font-semibold mb-1">Page ranges</label>
+              <input id="sp-ranges" type="text" inputmode="text" autocomplete="off" spellcheck="false" class="w-full h-11 px-3 rounded-lg border border-slate-300 bg-white focus:border-ink focus:outline-none disabled:opacity-60">
+              <p id="sp-help" class="mt-1 text-xs text-slate-500"></p>
+            </div>
+
+            <button id="sp-split" type="button" class="mt-4 w-full h-11 rounded-lg bg-saffron text-ink font-semibold hover:brightness-110 transition disabled:opacity-60 disabled:cursor-not-allowed">Split PDF</button>
+          </div>
+
+          <p id="sp-status" class="mt-3 text-sm text-slate-600" role="status" aria-live="polite"></p>
+
+          <div id="sp-results" class="hidden mt-5">
+            <div class="flex items-center justify-between gap-3">
+              <p id="sp-results-count" class="text-sm font-semibold text-ink"></p>
+              <button id="sp-zip" type="button" class="hidden h-9 px-3 rounded-lg bg-ink text-white text-sm font-semibold hover:bg-slate-800 transition disabled:opacity-60 disabled:cursor-not-allowed">Download all (ZIP)</button>
+            </div>
+            <ul id="sp-parts" class="mt-2 space-y-2 max-h-80 overflow-y-auto pr-1"></ul>
+          </div>
+
+          <p id="sp-hint" class="mt-3 text-sm text-slate-500">Choose a PDF to see its page count and split options.</p>
+        </div>
+
+        <article class="space-y-4 text-slate-600 leading-relaxed">
+          <h3 class="font-display font-bold text-xl text-ink">How to split a PDF</h3>
+          <ol class="list-decimal pl-5 space-y-1">
+            <li>Add your PDF by tapping the box or dragging it in. The page count appears straight away.</li>
+            <li>Pick a mode and type the pages, for example <span class="font-semibold text-ink">1-3, 4-end</span>.</li>
+            <li>Press Split PDF, then download each part or all of them together as a ZIP.</li>
+          </ol>
+          <h3 class="font-display font-bold text-xl text-ink">Writing page ranges</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><span class="font-semibold text-ink">Split into ranges:</span> <span class="font-semibold text-ink">1-3, 4-end</span> makes two PDFs, pages 1 to 3 and page 4 to the last page.</li>
+            <li><span class="font-semibold text-ink">Extract pages:</span> <span class="font-semibold text-ink">1, 3, 5-7</span> makes one PDF with exactly those pages, in the order you type them.</li>
+            <li><span class="font-semibold text-ink">Every page:</span> no input needed. You get one PDF per page, up to 100 pages.</li>
+          </ul>
+          <h3 class="font-display font-bold text-xl text-ink">When a PDF splitter is useful</h3>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Sending only the relevant pages of a long document by email or WhatsApp.</li>
+            <li>Bringing a PDF under the file-size limit of a government, college or job portal.</li>
+            <li>Separating a combined scan of several documents into individual files.</li>
+            <li>Pulling out a signature page, certificate or single form from a larger file.</li>
+          </ul>
+          <p>Pages are copied exactly as they are, so text stays selectable and searchable. Password-protected PDFs cannot be read, so remove the password in your PDF viewer first. Your file is processed only in your browser and is never uploaded or stored.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FAQ ============ -->
   <section id="faq" class="max-w-3xl mx-auto px-4 py-12 scroll-mt-16">
     <h2 class="font-display font-bold text-3xl text-ink">Frequently asked questions</h2>
@@ -444,13 +556,33 @@
         <p class="mt-2 text-slate-600">Password-protected or damaged PDFs cannot be read. Remove the password in your PDF viewer, save a new copy and add that copy instead.</p>
       </details>
     </div>
+
+    <h3 class="mt-8 font-display font-bold text-lg text-leaf">About Split PDF</h3>
+    <div class="mt-3 space-y-3">
+      <details class="bg-white border border-slate-200 rounded-xl p-4">
+        <summary class="flex justify-between gap-3 font-semibold text-ink">How do I split a PDF into separate files online for free?<svg class="chev shrink-0 transition" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p class="mt-2 text-slate-600">Choose your PDF, pick a split mode, enter the page ranges such as 1-3, 4-end and press Split PDF. Each part is created in your browser and can be downloaded on its own or all together as a ZIP file, with no sign-up and no watermark.</p>
+      </details>
+      <details class="bg-white border border-slate-200 rounded-xl p-4">
+        <summary class="flex justify-between gap-3 font-semibold text-ink">How do I write page ranges to split a PDF?<svg class="chev shrink-0 transition" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p class="mt-2 text-slate-600">Separate ranges with commas and use the word end for the last page. In Split into ranges mode, 1-3, 4-end creates two PDFs. In Extract pages mode, 1, 3, 5-7 creates one PDF containing exactly those pages.</p>
+      </details>
+      <details class="bg-white border border-slate-200 rounded-xl p-4">
+        <summary class="flex justify-between gap-3 font-semibold text-ink">Is my PDF uploaded to a server when I split it?<svg class="chev shrink-0 transition" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p class="mt-2 text-slate-600">No. Splitting happens entirely inside your browser, so your document never leaves your device.</p>
+      </details>
+      <details class="bg-white border border-slate-200 rounded-xl p-4">
+        <summary class="flex justify-between gap-3 font-semibold text-ink">Why can&rsquo;t my PDF be split?<svg class="chev shrink-0 transition" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p class="mt-2 text-slate-600">Password-protected or damaged PDFs cannot be read. Remove the password in your PDF viewer, save a new copy and use that copy instead.</p>
+      </details>
+    </div>
   </section>
 
   <!-- ============ ABOUT ============ -->
   <section id="about" class="bg-white border-t border-slate-200 scroll-mt-16">
     <div class="max-w-3xl mx-auto px-4 py-12">
       <h2 class="font-display font-bold text-3xl text-ink">About ToolBox India</h2>
-      <p class="mt-3 text-slate-600 leading-relaxed">ToolBox India is an independent collection of simple, free utilities built to be fast and easy on any phone or computer. Every tool runs inside your browser, so the dates, links and text you enter stay on your device. Current tools include an age calculator, a QR code generator, an image to PDF converter and a PDF merger, and we add new calculators and converters over time. Suggestions are welcome.</p>
+      <p class="mt-3 text-slate-600 leading-relaxed">ToolBox India is an independent collection of simple, free utilities built to be fast and easy on any phone or computer. Every tool runs inside your browser, so the dates, links and text you enter stay on your device. Current tools include an age calculator, a QR code generator, an image to PDF converter, a PDF merger and a PDF splitter, and we add new calculators and converters over time. Suggestions are welcome.</p>
       <p class="mt-3 text-slate-600 leading-relaxed">Questions or feedback? Email <a class="text-leaf font-semibold underline" href="mailto: aejaj.khan348@gmail.com">aejaj.khan348@gmail.com</a> (replace with your real address).</p>
     </div>
   </section>
@@ -467,6 +599,7 @@
       <a href="#qr-generator" class="hover:text-white">QR Code Generator</a>
       <a href="#pdf-converter" class="hover:text-white">Image to PDF</a>
       <a href="#merge-pdf" class="hover:text-white">Merge PDF</a>
+      <a href="#split-pdf" class="hover:text-white">Split PDF</a>
       <a href="#about" class="hover:text-white">About</a>
       <a href="privacy.html" class="hover:text-white">Privacy Policy</a>
       <a href="terms.html" class="hover:text-white">Terms &amp; Conditions</a>
@@ -1049,6 +1182,315 @@
     if (dropped.length) mpAddFiles(dropped);
   });
   mpRender();
+
+  // ---------- Split PDF ----------
+  var SP_MAX_BYTES = 50 * 1024 * 1024;
+  var SP_MAX_PARTS = 100;
+  var spFile = null;
+  var spDoc = null;
+  var spPages = 0;
+  var spBusy = false;
+  var spParts = [];
+
+  function spStatus(msg) { $('sp-status').textContent = msg || ''; }
+  function spError(msg) { var e = $('sp-error'); e.textContent = msg; e.classList.remove('hidden'); }
+  function spClearMessages() { $('sp-error').classList.add('hidden'); $('sp-error').textContent = ''; spStatus(''); }
+  function spTick() { return new Promise(function (r) { setTimeout(r, 20); }); }
+  function spMode() { var r = document.querySelector('input[name="sp-mode"]:checked'); return r ? r.value : 'ranges'; }
+  function spBase() {
+    var b = (spFile ? spFile.name : 'document').replace(/\.pdf$/i, '').replace(/[\\\/:*?"<>|]+/g, '_').trim();
+    return b || 'document';
+  }
+  function spRangeLabel(r) { return r.from === r.to ? String(r.from) : r.from + '\u2013' + r.to; }
+
+  // Turns text like "1-3, 5, 7-end" into [{from, to}, ...] and checks it against the page count.
+  function spParse(text, total) {
+    var tokens = String(text || '').replace(/[\u2010-\u2015\u2212]/g, '-').split(/[,;\n]+/)
+      .map(function (t) { return t.trim(); }).filter(Boolean);
+    if (!tokens.length) throw new Error('Enter at least one page or range, for example 1-3, 4-end.');
+    var val = function (v) { return /^\d+$/.test(v) ? parseInt(v, 10) : total; };
+    return tokens.map(function (t) {
+      var one = /^(\d+|end|last)$/i.exec(t);
+      var two = /^(\d+|end|last)\s*-\s*(\d+|end|last)$/i.exec(t);
+      var a, b;
+      if (one) { a = b = val(one[1].toLowerCase()); }
+      else if (two) { a = val(two[1].toLowerCase()); b = val(two[2].toLowerCase()); }
+      else throw new Error('Could not understand "' + t + '". Use page numbers and ranges such as 1-3, 5, 7-end.');
+      if (a < 1 || b < 1 || a > total || b > total) throw new Error('"' + t + '" is outside this PDF, which has ' + total + (total === 1 ? ' page.' : ' pages.'));
+      if (a > b) throw new Error('"' + t + '" runs backwards. Write it as ' + b + '-' + a + '.');
+      return { from: a, to: b };
+    });
+  }
+  function spIndices(r) {
+    var idx = [];
+    for (var p = r.from; p <= r.to; p++) idx.push(p - 1);
+    return idx;
+  }
+
+  var jszipPromise = null;
+  function ensureJSZip() {
+    if (window.JSZip) return Promise.resolve(window.JSZip);
+    if (!jszipPromise) {
+      var urls = [
+        'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js',
+        'https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js'
+      ];
+      jszipPromise = urls.reduce(function (p, u) {
+        return p.catch(function () {
+          return pdfLoadScript(u).then(function () { if (!window.JSZip) throw new Error('JSZip missing'); });
+        });
+      }, Promise.reject(new Error('start'))).then(function () {
+        return window.JSZip;
+      }).catch(function (e) { jszipPromise = null; throw e; });
+    }
+    return jszipPromise;
+  }
+
+  function spSaveBlob(blob, name) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 10000);
+  }
+
+  function spResetParts() {
+    spParts = [];
+    spRenderResults();
+  }
+
+  function spModeUI() {
+    var mode = spMode();
+    var n = spPages || 1;
+    var input = $('sp-ranges');
+    $('sp-range-wrap').classList.toggle('hidden', mode === 'every');
+    if (mode === 'ranges') {
+      var h = Math.floor(n / 2);
+      $('sp-range-label').textContent = 'Page ranges (one PDF per range)';
+      input.placeholder = n > 1 ? '1-' + h + ', ' + (h + 1) + '-end' : '1';
+      $('sp-help').textContent = 'Separate ranges with commas and use end for the last page. Example: 1-3, 4-end makes two PDFs.';
+    } else if (mode === 'extract') {
+      $('sp-range-label').textContent = 'Pages to extract (into one PDF)';
+      input.placeholder = n > 1 ? '1, ' + n : '1';
+      $('sp-help').textContent = 'List single pages and ranges in the order you want them. Example: 1, 3, 5-7 makes one PDF.';
+    }
+  }
+
+  function spRender() {
+    var has = !!spDoc;
+    $('sp-file').classList.toggle('hidden', !has);
+    $('sp-hint').classList.toggle('hidden', has);
+    $('sp-drop-text').textContent = has ? 'Tap to choose a different PDF or drag one here' : 'Tap to choose a PDF or drag it here';
+    if (has) {
+      $('sp-name').textContent = spFile.name;
+      $('sp-name').title = spFile.name;
+      $('sp-meta').textContent = spPages + (spPages === 1 ? ' page' : ' pages') + ' \u00b7 ' + fmtSize(spFile.size);
+    }
+    spModeUI();
+    $('sp-split').disabled = spBusy || !has;
+    $('sp-remove').disabled = spBusy;
+    $('sp-input').disabled = spBusy;
+    $('sp-ranges').disabled = spBusy;
+    Array.prototype.forEach.call(document.querySelectorAll('input[name="sp-mode"]'), function (r) { r.disabled = spBusy; });
+    $('sp-zip').disabled = spBusy;
+  }
+
+  function spRenderResults() {
+    var list = $('sp-parts');
+    list.innerHTML = '';
+    spParts.forEach(function (part, i) {
+      var li = document.createElement('li');
+      li.className = 'flex items-center gap-3 bg-paper border border-slate-200 rounded-xl p-2';
+      var badge = document.createElement('div');
+      badge.className = 'w-12 h-12 grid place-items-center rounded-lg border border-slate-200 bg-white text-xs font-bold text-saffron shrink-0';
+      badge.setAttribute('aria-hidden', 'true');
+      badge.textContent = 'PDF';
+      var info = document.createElement('div');
+      info.className = 'min-w-0 flex-1';
+      var nm = document.createElement('p');
+      nm.className = 'text-sm font-semibold text-ink truncate';
+      nm.textContent = part.name;
+      nm.title = part.name;
+      var meta = document.createElement('p');
+      meta.className = 'text-xs text-slate-500';
+      meta.textContent = part.label + ' \u00b7 ' + part.pages + (part.pages === 1 ? ' page' : ' pages') + ' \u00b7 ' + fmtSize(part.bytes.length);
+      info.appendChild(nm); info.appendChild(meta);
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = 'Download';
+      btn.setAttribute('aria-label', 'Download ' + part.name);
+      btn.className = 'shrink-0 h-9 px-3 rounded-lg bg-saffron text-ink text-sm font-semibold hover:brightness-110 transition';
+      btn.addEventListener('click', function () { spDownload(i); });
+      li.appendChild(badge); li.appendChild(info); li.appendChild(btn);
+      list.appendChild(li);
+    });
+    var has = spParts.length > 0;
+    $('sp-results').classList.toggle('hidden', !has);
+    $('sp-zip').classList.toggle('hidden', spParts.length < 2);
+    $('sp-results-count').textContent = spParts.length + (spParts.length === 1 ? ' file ready' : ' files ready');
+  }
+
+  function spDownload(i) {
+    var part = spParts[i];
+    if (!part) return;
+    spSaveBlob(new Blob([part.bytes], { type: 'application/pdf' }), part.name);
+  }
+
+  async function spZip() {
+    if (spBusy || spParts.length < 2) return;
+    spClearMessages();
+    spBusy = true; spRender();
+    spStatus('Preparing ZIP\u2026');
+    try {
+      var JSZip = await ensureJSZip();
+      var zip = new JSZip();
+      spParts.forEach(function (p) { zip.file(p.name, p.bytes); });
+      var blob = await zip.generateAsync({ type: 'blob' });
+      spSaveBlob(blob, spBase() + '_split.zip');
+      spStatus('Done! Your ZIP with ' + spParts.length + ' PDFs has been downloaded.');
+    } catch (e) {
+      spStatus('');
+      spError('Could not create the ZIP. Download the files one by one instead, or check your connection and try again.');
+    } finally {
+      spBusy = false; spRender();
+    }
+  }
+
+  async function spLoad(f, note) {
+    if (spBusy) return;
+    spClearMessages();
+    if (!mpIsPdf(f)) { spError('"' + f.name + '" is not a PDF file.'); return; }
+    if (f.size > SP_MAX_BYTES) { spError('"' + f.name + '" is larger than 50 MB.'); return; }
+    if (f.size === 0) { spError('"' + f.name + '" is empty.'); return; }
+    spBusy = true; spRender();
+    spStatus('Reading ' + f.name + '\u2026');
+    var lib = null;
+    try { lib = await ensurePdfLib(); } catch (e) { lib = null; }
+    if (!lib) {
+      spBusy = false; spStatus(''); spRender();
+      spError('The PDF library could not load. Check your internet connection and try again.');
+      return;
+    }
+    try {
+      await spTick();
+      var doc = await lib.PDFDocument.load(await f.arrayBuffer());
+      var n = doc.getPageCount();
+      if (!n) throw new Error('no pages');
+      spFile = f; spDoc = doc; spPages = n;
+      $('sp-ranges').value = '';
+      spResetParts();
+      spStatus(note || '');
+    } catch (e) {
+      spStatus('');
+      spError('"' + f.name + '" could not be read. It may be password-protected or damaged.');
+    } finally {
+      spBusy = false; spRender();
+    }
+  }
+
+  function spClearFile() {
+    if (spBusy) return;
+    spFile = null; spDoc = null; spPages = 0;
+    $('sp-ranges').value = '';
+    spClearMessages();
+    spResetParts();
+    spRender();
+  }
+
+  async function spSplit() {
+    if (spBusy || !spDoc) return;
+    spClearMessages();
+    spResetParts();
+    var mode = spMode();
+    var plans = [];
+    var base = spBase();
+    try {
+      if (mode === 'every') {
+        if (spPages > SP_MAX_PARTS) throw new Error('"Every page" works for PDFs of up to ' + SP_MAX_PARTS + ' pages. Use page ranges for longer documents.');
+        for (var p = 1; p <= spPages; p++) plans.push({ idx: [p - 1], label: 'Page ' + p, file: base + '_page_' + p + '.pdf' });
+      } else {
+        var ranges = spParse($('sp-ranges').value, spPages);
+        if (mode === 'ranges') {
+          if (ranges.length > SP_MAX_PARTS) throw new Error('Too many ranges. You can create up to ' + SP_MAX_PARTS + ' files at a time.');
+          ranges.forEach(function (r) {
+            plans.push({
+              idx: spIndices(r),
+              label: (r.from === r.to ? 'Page ' : 'Pages ') + spRangeLabel(r),
+              file: base + (r.from === r.to ? '_page_' + r.from : '_pages_' + r.from + '-' + r.to) + '.pdf'
+            });
+          });
+        } else {
+          var all = [];
+          ranges.forEach(function (r) { all = all.concat(spIndices(r)); });
+          plans.push({ idx: all, label: 'Pages ' + ranges.map(spRangeLabel).join(', '), file: base + '_extracted.pdf' });
+        }
+      }
+    } catch (e) {
+      spError(e.message);
+      if (mode !== 'every') $('sp-ranges').focus();
+      return;
+    }
+
+    spBusy = true; spRender();
+    spStatus('Preparing\u2026');
+    var lib = null;
+    try { lib = await ensurePdfLib(); } catch (e) { lib = null; }
+    if (!lib) {
+      spBusy = false; spStatus(''); spRender();
+      spError('The PDF library could not load. Check your internet connection and try again.');
+      return;
+    }
+    var made = [];
+    try {
+      for (var i = 0; i < plans.length; i++) {
+        spStatus('Creating file ' + (i + 1) + ' of ' + plans.length + '\u2026');
+        await spTick();
+        var out = await lib.PDFDocument.create();
+        var copied = await out.copyPages(spDoc, plans[i].idx);
+        copied.forEach(function (pg) { out.addPage(pg); });
+        var bytes = await out.save();
+        made.push({ name: plans[i].file, label: plans[i].label, pages: plans[i].idx.length, bytes: bytes });
+      }
+      spParts = made;
+      spStatus('Done! ' + made.length + (made.length === 1 ? ' PDF is' : ' PDFs are') + ' ready to download.');
+    } catch (e) {
+      spParts = [];
+      spStatus('');
+      spError('Something went wrong while splitting. Please try again.');
+    } finally {
+      spBusy = false; spRender(); spRenderResults();
+    }
+  }
+
+  $('sp-input').addEventListener('change', function () {
+    var picked = this.files && this.files[0] ? this.files[0] : null;
+    this.value = '';
+    if (picked) spLoad(picked);
+  });
+  $('sp-split').addEventListener('click', spSplit);
+  $('sp-remove').addEventListener('click', spClearFile);
+  $('sp-zip').addEventListener('click', spZip);
+  $('sp-ranges').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); spSplit(); } });
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="sp-mode"]'), function (r) {
+    r.addEventListener('change', function () { $('sp-error').classList.add('hidden'); spModeUI(); });
+  });
+
+  var spDrop = $('sp-drop');
+  ['dragenter', 'dragover'].forEach(function (ev) {
+    spDrop.addEventListener(ev, function (e) { e.preventDefault(); spDrop.classList.add('is-over'); });
+  });
+  ['dragleave', 'drop'].forEach(function (ev) {
+    spDrop.addEventListener(ev, function (e) { e.preventDefault(); spDrop.classList.remove('is-over'); });
+  });
+  spDrop.addEventListener('drop', function (e) {
+    var dropped = e.dataTransfer && e.dataTransfer.files ? Array.prototype.slice.call(e.dataTransfer.files) : [];
+    if (!dropped.length || spBusy) return;
+    spLoad(dropped[0], dropped.length > 1 ? 'Split PDF works on one file at a time, so only the first PDF was used.' : '');
+  });
+  spRender();
 })();
 </script>
 </body>
