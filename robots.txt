@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aejaj952.github.io/toolboxi/sitemap.xml
